@@ -1,5 +1,119 @@
+//! # RustDBMS
+//!
+//! RustDBMS is an experimental database management system (DBMS) implemented in Rust.
+//! This project aims to explore database concepts and provide a simple, educational example
+//! of a database management system using Rust.
+//!
+//! ## Features
+//!
+//! - CLI Interface: Interact with the DBMS through a command-line interface.
+//! - Collection Management: Create, read, update, and delete collections of records.
+//! - Record Operations: Perform CRUD operations on individual records within collections.
+//! - Data Persistence: Store and load data from a JSON file for persistence across sessions.
+//!
+//! ## Possible New Features
+//!
+//! As this project is an exploratory study by a CS student with limited production experience
+//! in using or implementing fully-fledged DBMS systems, any suggestions or contributions
+//! from the community are highly valued. Below are some ideas for potential new features:
+//!
+//! - **API Interface**: Implement a RESTful or GraphQL API interface to allow external applications
+//!   to interact with the DBMS, making it accessible over the network. This feature is planned to be
+//!   made.
+//!
+//! - **Node-Based Distribution**: Design a distributed architecture where the DBMS can
+//!   run across multiple nodes, improving scalability and fault tolerance.
+//!
+//! - **SQL-Like Query Engine**: Develop a query engine capable of parsing and executing
+//!   SQL or SQL-like queries, making the DBMS more versatile and user-friendly.
+//!
+//! - **Web Dashboard**: Create a web-based dashboard for visualizing data, monitoring system
+//!   performance, and managing the DBMS, providing a user-friendly interface.
+//!
+//! - **User Permission and Authentication**: Introduce a user management system with
+//!   role-based access control, allowing administrators to define permissions for different users.
+//!
+//! - **Automated Backup**: Implement features for automated backup and restore, ensuring data
+//!   can be easily recovered in case of failures or data corruption.
+//!
+//! - **Key and Index-Based Collections**: Enhance the DBMS by introducing key-based collections
+//!   and indexing mechanisms, improving data retrieval speed and query efficiency.
+//!
+//! - **Table-Like Structures**: Expand upon the concept of collections to include table-like
+//!   structures, enabling more complex data relationships and queries.
+//!
+//! - **ACID Support**: Implement support for Atomicity, Consistency, Isolation, and Durability
+//!   (ACID) transactions, ensuring data integrity and reliability during complex operations.
+//!
+//! - **Indexing**: Introduce indexing mechanisms such as B-trees or hash indexes to optimize
+//!   data retrieval and improve query performance.
+//!
+//! ## Examples
+//!
+//! Below are some examples demonstrating how to use RustDBMS:
+//!
+//! **Creating a Collection:**
+//!
+//! ```sh
+//! $ rustdbms-cli col create my_collection
+//! ```
+//!
+//! **Adding a Record to a Collection:**
+//!
+//! ```sh
+//! $ rustdbms-cli col read my_collection
+//! ```
+//!
+//! **Listing All Collections:**
+//!
+//! ```sh
+//! $ rustdbms-cli col list
+//! ```
+//!
+//! **Deleting a Collection:**
+//!
+//! ```sh
+//! $ rustdbms-cli col delete my_collection
+//! ```
+//!
+//! **Updating a Collection:**
+//!
+//! ```sh
+//! $ rustdbms-cli col update my_collection
+//! ```
+//!
+//! ## Installation
+//!
+//! Add this to your `Cargo.toml`:
+//!
+//! ```toml
+//! [dependencies]
+//! rustdbms = "0.1.0"
+//! ```
+//!
+//! To use the CLI tool, install it via Cargo:
+//!
+//! ```sh
+//! cargo install rustdbms-cli
+//! ```
+//!
+//! ## Getting Started
+//!
+//! To get started with RustDBMS, you can explore the CLI commands provided or integrate the library
+//! into your own Rust project. For more detailed usage and documentation, refer to the [docs.rs page](https://docs.rs/rustdbms).
+//!
+//! ## Contributing
+//!
+//! Contributions are welcome! Please open issues or pull requests on the [GitHub repository](https://github.com/yourusername/rustdbms).
+//!
+//! ## License
+//!
+//! RustDBMS is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+
 mod db;
 mod utils;
+mod API;
 
 use log::trace;
 use std::{env, io};
@@ -9,6 +123,9 @@ use crate::db::schema::{Record, Value};
 use crate::db::storage::{init_storage, StorageEngine};
 use crate::utils::error::DBError;
 use crate::utils::logger::init_logger;
+
+
+
 
 
 /// Main core function
