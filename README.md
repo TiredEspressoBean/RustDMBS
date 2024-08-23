@@ -66,7 +66,7 @@ Please ensure that your code follows Rust's style guidelines and includes approp
 
 ## License
 
-RustDBMS is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+RustDBMS is licensed under the MIT License. See the [LICENSE](https://github.com/TiredEspressoBean/RustDMBS/blob/master/LICENSE.md) file for more information.
 
 ## Contact
 
