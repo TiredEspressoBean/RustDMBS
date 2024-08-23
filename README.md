@@ -50,7 +50,7 @@ After building the project, you can use the CLI to interact with the database. H
 Refer to the CLI documentation for more details on available commands and options.
 
 ## Documentation
-For more detailed information about the project, including API documentation and design decisions, please refer to the generated documentation:
+For more detailed information about the project, design decisions, please refer to the generated documentation:
 
     cargo doc --open
     
